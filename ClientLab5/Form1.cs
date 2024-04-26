@@ -14,14 +14,17 @@ namespace ClientLab5
             cmbProductName.Items.Add("apple");
             cmbProductName.Items.Add("banana");
             cmbProductName.Items.Add("orange");
+            if (cmbProductName?.Items?.Count != 0)
+            {
+                cmbProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList; cmbProductName.SelectedIndex = 0;
+            }
 
-            // Установка первого элемента в качестве выбранного по умолчанию
-            cmbProductName.SelectedIndex = 0;
+
         }
 
         private async void btnGetPrice_Click(object sender, EventArgs e)
         {
-            string productName = cmbProductName.SelectedItem?.ToString();
+            string productName = cmbProductName.SelectedItem?.ToString() ?? cmbProductName.Text;
             if (string.IsNullOrEmpty(productName))
             {
                 MessageBox.Show("Please select a product.");

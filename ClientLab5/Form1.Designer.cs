@@ -34,7 +34,8 @@
             // 
             // cmbProductName
             // 
-            this.cmbProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+           
+                
             this.cmbProductName.FormattingEnabled = true;
             this.cmbProductName.Location = new System.Drawing.Point(12, 12);
             this.cmbProductName.Name = "cmbProductName";
