@@ -9,11 +9,24 @@ namespace ClientLab5
         public Form1()
         {
             InitializeComponent();
+
+            // «аполнение ComboBox списком доступных товаров
+            cmbProductName.Items.Add("apple");
+            cmbProductName.Items.Add("banana");
+            cmbProductName.Items.Add("orange");
+
+            // ”становка первого элемента в качестве выбранного по умолчанию
+            cmbProductName.SelectedIndex = 0;
         }
 
         private async void btnGetPrice_Click(object sender, EventArgs e)
         {
-            string productName = txtProductName.Text;
+            string productName = cmbProductName.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(productName))
+            {
+                MessageBox.Show("Please select a product.");
+                return;
+            }
             Dictionary<string, string> data = new Dictionary<string, string>
             {
                 {"product_name", productName}
